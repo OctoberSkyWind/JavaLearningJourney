@@ -1,0 +1,26 @@
+#  密码模式!!!
+### 密码模式（要用postman，同时要使用http的Basic Auth配置客户端的用户名和密码）
+localhost:8500/oauth/token?grant_type=password&username=hx&password=123&scope=all
+
+### 密码模式;httpclient中使用Basic Auth认证;（Y21zOnNlY3JldA==是base64encode(cms:secret)后的值）;cms是客户端id，secret是密码
+POST localhost:8500/oauth/token?grant_type=password&username=hx&password=123&scope=all
+# Authorization: Basic base64encode(username+":"+password)
+Authorization: Basic Y21zOnNlY3JldA==
+
+### 校验token
+GET http://localhost:8500/oauth/check_token?token=a243edba-109c-4b40-a5d9-624352d82fec
+
+# 授权码模式！！！
+### 申请授权码（在浏览器中测试，url中有授权码）
+http://localhost:8500/oauth/authorize?client_id=cms&cliect_secret=secret&response_type=code
+
+### 用授权码(url中的code的值为上一步的授权码)获取token（要用postman，同时要使用http的Basic Auth配置客户端的用户名和密码）
+POST http://localhost:8500/oauth/token?code=U9Df45&grant_type=authorization_code&redirect_url=http://127.0.0.1:8084/cms/login&scope=all
+
+### httpclient实现Basic Auth认证（Y21zOnNlY3JldA==是base64encode(cms:secret)后的值;cms是客户端id，secret是密码
+POST http://localhost:8500/oauth/token?code=ZxbOQu&grant_type=authorization_code&redirect_url=http://127.0.0.1:8084/cms/login&scope=all
+# Authorization: Basic base64encode(username+":"+password)
+Authorization: Basic Y21zOnNlY3JldA==
+
+
+
