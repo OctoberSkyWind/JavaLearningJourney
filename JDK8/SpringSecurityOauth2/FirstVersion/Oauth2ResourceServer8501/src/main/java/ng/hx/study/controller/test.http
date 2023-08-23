@@ -1,2 +1,2 @@
-### 测试资源
-GET
+### 携带token测试资源
+GET http://localhost:8501/t1?access_token=7ddc298a-151f-446c-8784-a702f5eda971
