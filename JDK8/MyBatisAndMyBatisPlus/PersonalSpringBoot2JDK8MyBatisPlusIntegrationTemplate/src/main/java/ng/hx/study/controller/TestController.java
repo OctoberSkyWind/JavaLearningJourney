@@ -2,6 +2,7 @@ package ng.hx.study.controller;
 
 import ng.hx.study.mapper.UserMapper;
 import ng.hx.study.model.po.User;
+import ng.hx.study.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -11,12 +12,19 @@ import org.springframework.web.bind.annotation.*;
 //@RequestMapping("test")
 public class TestController {
     @Autowired
-    UserMapper userMapper;
+    private UserMapper userMapper;
+    @Autowired
+    private UserService userService;
 
     @RequestMapping(value = "/{type}/{test}", method = RequestMethod.GET)
     @ResponseBody
     public Object test(@PathVariable("type") int type, @PathVariable("test") int test) {
         if (type == 1) {
+            User user = userService.getById("1");
+            if (user != null)
+                return user;
+        }
+        if (type == 2) {
             User user = userMapper.selectById("1");
             if (user != null)
                 return user;
