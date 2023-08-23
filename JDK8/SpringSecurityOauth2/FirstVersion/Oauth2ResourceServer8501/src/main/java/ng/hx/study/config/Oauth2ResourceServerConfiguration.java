@@ -16,7 +16,6 @@ public class Oauth2ResourceServerConfiguration extends ResourceServerConfigurerA
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) {
         //调用认证服务器验证token
-        
         RemoteTokenServices tokenService = new RemoteTokenServices();
         tokenService.setCheckTokenEndpointUrl(CHECK_TOKEN_URL);
         tokenService.setClientId("cms");
