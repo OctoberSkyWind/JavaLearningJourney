@@ -1,0 +1,5 @@
+###
+GET http://localhost:8001/res1
+
+###
+GET http://localhost:8001/res2

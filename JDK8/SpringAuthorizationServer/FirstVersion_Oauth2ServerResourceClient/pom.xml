@@ -10,6 +10,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>Oauth2Resource8001</module>
+        <module>Oauth2Resource8002</module>
+        <module>CertificationServer9000</module>
     </modules>
 
 
